@@ -38,21 +38,25 @@ export default function UniquePortfolio() {
     }
   }, [])
 
+  const setGridItemRef = (el: HTMLDivElement | null, index: number) => {
+    gridItemsRef.current[index] = el
+  }
+
   return (
     <div className="unique-portfolio">
       <div className="custom-cursor" ref={cursorRef}>
         <MousePointer2 size={24} />
       </div>
       <div className="grid-container">
-        <div className="grid-item name" ref={(el) => (gridItemsRef.current[0] = el)}>
+        <div className="grid-item name" ref={(el) => setGridItemRef(el, 0)}>
           <h1>John Doe</h1>
           <p>Creative Developer</p>
         </div>
-        <div className="grid-item about" ref={(el) => (gridItemsRef.current[1] = el)}>
+        <div className="grid-item about" ref={(el) => setGridItemRef(el, 1)}>
           <h2>About Me</h2>
           <p>I craft digital experiences that blend creativity and technology.</p>
         </div>
-        <div className="grid-item skills" ref={(el) => (gridItemsRef.current[2] = el)}>
+        <div className="grid-item skills" ref={(el) => setGridItemRef(el, 2)}>
           <h2>Skills</h2>
           <ul>
             <li>JavaScript</li>
@@ -62,7 +66,7 @@ export default function UniquePortfolio() {
             <li>Three.js</li>
           </ul>
         </div>
-        <div className="grid-item projects" ref={(el) => (gridItemsRef.current[3] = el)}>
+        <div className="grid-item projects" ref={(el) => setGridItemRef(el, 3)}>
           <h2>Projects</h2>
           <div className="project-list">
             <div className="project">
@@ -79,7 +83,7 @@ export default function UniquePortfolio() {
             </div>
           </div>
         </div>
-        <div className="grid-item contact" ref={(el) => (gridItemsRef.current[4] = el)}>
+        <div className="grid-item contact" ref={(el) => setGridItemRef(el, 4)}>
           <h2>Get in Touch</h2>
           <div className="social-links">
             <a href="https://github.com" target="_blank" rel="noopener noreferrer">
